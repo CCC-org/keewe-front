@@ -1,34 +1,58 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Git strategy - (Github Flow)
 
-## Getting Started
+**1. 브랜치 생성**
 
-First, run the development server:
+- 브랜치 생성시 다음과 같은 방식으로 브랜치 목적에 맞는 브랜치 헤더를 설정한다.
 
-```bash
-npm run dev
-# or
-yarn dev
+| 생성 목적 | 브랜치 위치                      |
+| --------- | -------------------------------- |
+| 기능 개발 | [origin/Feature/{issue_number}]  |
+| 버그 픽스 | [origin/Fix/{issue_number}]      |
+| 코드 개선 | [origin/Refactor/{issue_number}] |
+
+```
+issue_number: 해당 이슈가 진행되는 스프린트에서 할당받은 고유 이슈 번호
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- 체계적인 분류를 위해 브랜치 이름을 통해 의도를 명확하게 드러낸다.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+- 새로운 브랜치는 항상 최신의 main브랜치에서 만든다.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+- main브랜치는 항상 최신의 상태로 유지한다.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+**2. 개발 & 커밋 & 푸쉬**
 
-## Learn More
+- 커밋 메세지를 명확하게 작성한다.
 
-To learn more about Next.js, take a look at the following resources:
+- 원격 브랜치로 수시로 push하여 상황을 공유한다
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+**3. PR(Pull Request) 생성**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- 피그백이나 도움이 필요할 때 그리고 merge 준비가 완료되었을 때 Pull Request를 생성한다.
 
-## Deploy on Vercel
+- 동료들의 리뷰가 끝난 후 준비가 완료되었다면 main브랜치로 반영을 요구한다
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- main 브랜치로 merge될 경우 conflict를 작업중인 브랜치에서 미리 해결하고 진행한다.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- PR생성시 예시
+
+  - PR 제목
+
+  | 생성 목적 | PR 제목                                 |
+  | --------- | --------------------------------------- |
+  | 기능 개발 | [Feature] {sprint_name}:{issue_name}    |
+  | 버그 픽스 | [Fix] {sprint_number}:{issue_name}      |
+  | 코드 개선 | [Refactor] {sprint_number}:{issue_name} |
+
+  - PR 설명
+
+  ```
+  - Feature:
+   - 개발내용
+  - Notes:
+    - PR리뷰시 주의할점, 추가 전달사항
+  ```
+
+**4. 리뷰 & 토의**
+
+- 리뷰와 토의를 상세하게 진행하여 이후 해당 PR이 main으로 merge될 때 문제가 없도록 한다.
