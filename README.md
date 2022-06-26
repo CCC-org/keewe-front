@@ -38,11 +38,11 @@ issue_number: 해당 이슈가 진행되는 스프린트에서 할당받은 고�
 
   - PR 제목
 
-  | 생성 목적 | PR 제목                                   |
-  | --------- | ----------------------------------------- |
-  | 기능 개발 | [Feature] [{sprint_name}]:{issue_name}    |
-  | 버그 픽스 | [Fix] [{sprint_number}]:{issue_name}      |
-  | 코드 개선 | [Refactor] [{sprint_number}]:{issue_name} |
+  | 생성 목적 | PR 제목                                 |
+  | --------- | --------------------------------------- |
+  | 기능 개발 | [Feature] [{sprint_name}]:{issue_name}  |
+  | 버그 픽스 | [Fix] [{sprint_name}]:{issue_name}      |
+  | 코드 개선 | [Refactor] [{sprint_name}]:{issue_name} |
 
   - PR 설명
 
