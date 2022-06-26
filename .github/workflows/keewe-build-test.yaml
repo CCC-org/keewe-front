@@ -19,5 +19,8 @@ jobs:
           node-version: 16.x
           cache: 'npm'
 
+      - name: module install
+        run: npm run install
+
       - name: build check
         run: npm run build
