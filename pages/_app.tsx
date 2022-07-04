@@ -1,7 +1,7 @@
 import React from 'react';
 
 import type { AppProps } from 'next/app';
-import AppPropsProvider from '@store/AppPropsProvider';
+// import AppPropsProvider from '@store/AppPropsProvider';
 import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import { CacheProvider, EmotionCache } from '@emotion/react';
