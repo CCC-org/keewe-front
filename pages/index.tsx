@@ -9,8 +9,9 @@ const Home: NextPage = () => {
 	return (
 		<>
 			<Typography variant="display" color={theme.palette.common.graphic.blue}>
-				hihi
+				hihis
 			</Typography>
+			<h1>hihi</h1>
 		</>
 	);
 };
