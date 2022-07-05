@@ -6,14 +6,7 @@ import { useTheme } from '@mui/material/styles';
 
 const Home: NextPage = () => {
 	const theme = useTheme();
-	return (
-		<>
-			<Typography variant="display" color={theme.palette.common.graphic.blue}>
-				hihis
-			</Typography>
-			<h1>hihi</h1>
-		</>
-	);
+	return <></>;
 };
 
 export default Home;
