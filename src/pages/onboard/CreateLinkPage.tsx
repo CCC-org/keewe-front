@@ -54,7 +54,7 @@ const CreateLinkPage = () => {
 			>
 				<Typography
 					variant="headline1"
-					color={theme.palette.common.graphic.coral}
+					color={theme.palette.common.graphic.black}
 					sx={{ opacity: '0.3', padding: '4px 0px 5px 0px' }}
 				>
 					keewe.shop/
@@ -64,9 +64,8 @@ const CreateLinkPage = () => {
 					InputProps={{
 						disableUnderline: true,
 						style: {
-							// color: theme.palette.common.brand.onprimary.container,
-							color: linkColor,
-							fontWeight: '700',
+							color: theme.palette.common.graphic.black,
+							fontWeight: '800',
 							fontSize: '21px',
 							minWidth: '200px',
 							padding: '0px 0px 0px 0px',
