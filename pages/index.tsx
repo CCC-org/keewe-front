@@ -8,10 +8,9 @@ const Home: NextPage = () => {
 	const theme = useTheme();
 	return (
 		<>
-			<Typography variant="display" color={theme.palette.common.graphic.blue}>
-				hihis
+			<Typography variant="display" color={theme.palette.common.graphic.black}>
+				hihis ??????  까까까까
 			</Typography>
-			<h1>hihi</h1>
 		</>
 	);
 };

@@ -22,7 +22,6 @@ function MyApp(props: MyAppProps) {
 				<CssBaseline />
 				<Component {...pageProps} />
 			</ThemeProvider>
-			<p>Hello to me21</p>
 		</CacheProvider>
 	);
 }

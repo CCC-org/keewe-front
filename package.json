@@ -17,6 +17,7 @@
 		"@mui/styled-engine": "^5.8.0",
 		"@mui/styled-engine-sc": "^5.8.0",
 		"@mui/system": "^5.8.6",
+		"font-applesdgothicneo": "^1.0.3",
 		"next": "^12.2.0",
 		"next-compose-plugins": "^2.2.1",
 		"next-pwa": "^5.5.4",

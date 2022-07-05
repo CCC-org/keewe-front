@@ -17,6 +17,7 @@ declare module '@mui/material/styles/createPalette' {
 			};
 		};
 		graphic: {
+			black: string;
 			blue: string;
 			sky: string;
 			purple: string;
