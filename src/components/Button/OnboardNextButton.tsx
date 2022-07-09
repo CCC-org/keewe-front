@@ -13,7 +13,7 @@ const StyledButton = styled(Button)<ButtonProps>(({ theme }) => ({
 	justifyContent: 'center',
 	alignItems: 'center',
 	color: `${theme.palette.common.graphic.white} 0.5s ease`,
-	transition: `opacity 1s ease`,
+	transition: `opacity 0.5s ease`,
 	'&.Mui-disabled, &:active': {
 		color: `${theme.palette.common.graphic.white}`,
 		backgroundColor: `${theme.palette.common.brand.onprimary.main}`,
