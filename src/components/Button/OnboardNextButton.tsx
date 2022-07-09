@@ -1,7 +1,9 @@
 import React from 'react';
+
 import { SvgIcon, useTheme } from '@mui/material';
 import Button, { ButtonProps } from '@mui/material/Button';
-import IconPath from 'constant/IconPath';
+import arrow_forward from '@icons/arrow_forward';
+
 import { NextPage } from 'next';
 import { styled } from '@mui/material/styles';
 
@@ -43,7 +45,7 @@ const OnboardNextButton: NextPage<OnboardNextButtonProps> = (
 			sx={{ backgroundColor: theme.palette.common.brand.onprimary.main }}
 		>
 			<SvgIcon>
-				<path d={IconPath.arrow_forward} />
+				<path d={arrow_forward} />
 			</SvgIcon>
 		</StyledButton>
 	);
