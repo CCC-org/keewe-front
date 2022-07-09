@@ -19,4 +19,13 @@ module.exports = withPlugins(
 		// 추가 플러그인 작성
 	],
 	nextConfig,
+	{
+		webpack: (config) => {
+			config.module.rules.push({
+				test: /\.svg$/,
+				use: ['@svgr/webpack'],
+			});
+			return config;
+		},
+	},
 );
