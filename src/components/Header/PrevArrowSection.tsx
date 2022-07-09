@@ -4,7 +4,7 @@ import IconButton from '@mui/material/Button';
 import { useTheme } from '@mui/material';
 import SVGButton from '@components/Button/SVGButton';
 import Box from '@mui/material/Box';
-import arrow_back from 'constant/Icons/arrow_back';
+import arrow_back from '@icons/arrow_back';
 
 const PrevArrowSection = () => {
 	const theme = useTheme();

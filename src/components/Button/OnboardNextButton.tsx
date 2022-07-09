@@ -1,7 +1,7 @@
 import React from 'react';
 import { SvgIcon } from '@mui/material';
 import Button from '@mui/material/Button';
-import arrow_forward from 'constant/Icons/arrow_forward';
+import arrow_forward from '@icons/arrow_forward';
 import { NextPage } from 'next';
 import { useTheme } from '@mui/material';
 

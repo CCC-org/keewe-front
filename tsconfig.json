@@ -23,7 +23,7 @@
 			"@pages/*": ["./pages/*"],
 			"@store/*": ["./store/*"],
 			"@theme/*": ["./theme/*"],
-			"@icons/*": ["../public/images/icons/*"]
+			"@icons/*": ["./constant/Icons/*"]
 		}
 	},
 	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
