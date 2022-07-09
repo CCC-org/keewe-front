@@ -18,6 +18,7 @@ declare module '@mui/material/styles/createPalette' {
 		};
 		graphic: {
 			black: string;
+			white: string;
 			blue: string;
 			sky: string;
 			purple: string;
@@ -102,6 +103,7 @@ const BRAND = {
 
 const GRAPHIC = {
 	black: '#121314',
+	white: '#FFFFFF',
 	blue: '#2E6DE8',
 	sky: '#19A9FA',
 	purple: '#9350E9',
@@ -121,7 +123,6 @@ const SYSTEM = {
 };
 
 const TYPOGRAPHY = {
-	fontFamily: 'Apple SD Gothic Neo',
 	color: '#121314',
 	display: {
 		fontWeight: 700,
@@ -174,7 +175,22 @@ const TYPOGRAPHY = {
 	},
 };
 
+const COMPONENTS = {
+	MuiCssBaseline: {
+		styleOverrides: {
+			body: {
+				padding: 0,
+				margin: 0,
+				fontFamily: 'Apple SD Gothic Neo',
+				height: '100vh',
+				backgroundColor: BRAND.surface.main,
+			},
+		},
+	},
+};
+
 const theme = createTheme({
+	components: COMPONENTS,
 	typography: TYPOGRAPHY,
 	palette: {
 		common: {
