@@ -1,7 +1,7 @@
 import React from 'react';
 import { SvgIcon } from '@mui/material';
 import Button from '@mui/material/Button';
-import IconPath from 'constant/IconPath';
+import arrow_forward from '@icons/arrow_forward';
 import { NextPage } from 'next';
 import { useTheme } from '@mui/material';
 
@@ -32,7 +32,7 @@ const OnboardNextButton: NextPage<OnboardNextButtonProps> = (
 			}}
 		>
 			<SvgIcon>
-				<path d={IconPath.arrow_forward} />
+				<path d={arrow_forward} />
 			</SvgIcon>
 		</Button>
 	);
