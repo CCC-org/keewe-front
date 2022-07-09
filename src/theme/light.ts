@@ -121,7 +121,6 @@ const SYSTEM = {
 };
 
 const TYPOGRAPHY = {
-	fontFamily: 'Apple SD Gothic Neo',
 	color: '#121314',
 	display: {
 		fontWeight: 700,
@@ -174,7 +173,22 @@ const TYPOGRAPHY = {
 	},
 };
 
+const COMPONENTS = {
+	MuiCssBaseline: {
+		styleOverrides: {
+			body: {
+				padding: 0,
+				margin: 0,
+				fontFamily: 'Apple SD Gothic Neo',
+				height: '100vh',
+				backgroundColor: BRAND.surface.main,
+			},
+		},
+	},
+};
+
 const theme = createTheme({
+	components: COMPONENTS,
 	typography: TYPOGRAPHY,
 	palette: {
 		common: {
