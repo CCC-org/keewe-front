@@ -18,6 +18,7 @@ declare module '@mui/material/styles/createPalette' {
 		};
 		graphic: {
 			black: string;
+			white: string;
 			blue: string;
 			sky: string;
 			purple: string;
@@ -102,6 +103,7 @@ const BRAND = {
 
 const GRAPHIC = {
 	black: '#121314',
+	white: '#FFFFFF',
 	blue: '#2E6DE8',
 	sky: '#19A9FA',
 	purple: '#9350E9',
