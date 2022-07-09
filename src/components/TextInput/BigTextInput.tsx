@@ -19,8 +19,14 @@ const BigTextInput = (props: BigTextInputProps) => {
 			onChange={onChange}
 			InputProps={{
 				disableUnderline: true,
+				// TODO: placeholder color needs to change
+				// sx: {
+				// 	'&::placeholder': {
+				// 		color: 'green',
+				// 	},
+				// },
 				style: {
-					color: theme.palette.common.graphic.black,
+					color: theme.palette.common.brand.onprimary.container,
 					fontWeight: '800',
 					fontSize: '21px',
 					minWidth: '200px',

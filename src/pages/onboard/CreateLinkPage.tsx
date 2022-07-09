@@ -5,34 +5,42 @@ import { Typography } from '@mui/material';
 import TextField from '@mui/material/TextField';
 import { useTheme } from '@mui/material';
 import OnboardNextButton from '@components/Button/OnboardNextButton';
+import BigTextInput from '@components/TextInput/BigTextInput';
 
 const CreateLinkPage = () => {
 	const theme = useTheme();
-	const [value, setValue] = useState('');
+	const [link, setLink] = useState<string>('');
 	const [color, setColor] = useState('gray');
+	const [active, setActive] = useState<boolean>(true);
 	const [linkColor, setLinkColor] = useState('gray');
 
-	const checkValue = (
+	const handleChange = (
 		e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>,
 	) => {
-		setValue(e.target.value);
+		setLink(e.target.value);
 	};
 
 	useEffect(() => {
-		if (value.length > 5) {
-			setColor('black');
+		if (link.length > 5) {
+			setActive(false);
 		} else {
-			setColor('gray');
+			setActive(true);
 		}
-	}, [value]);
+	}, [link]);
 
 	useEffect(() => {
-		if (value.length > 0) {
+		if (link.length > 0) {
 			setLinkColor(theme.palette.common.brand.onprimary.container);
 		} else {
 			setLinkColor('gray');
 		}
-	}, [value]);
+	}, [link]);
+
+	const handleNextClick = () => {
+		// TODO: 다음으로 이동
+		alert('다음으로 이동 논리 필요');
+		return;
+	};
 
 	return (
 		<>
@@ -59,25 +67,11 @@ const CreateLinkPage = () => {
 				>
 					keewe.shop/
 				</Typography>
-				<TextField
-					onChange={checkValue}
-					InputProps={{
-						disableUnderline: true,
-						style: {
-							color: theme.palette.common.graphic.black,
-							fontWeight: '800',
-							fontSize: '21px',
-							minWidth: '200px',
-							padding: '0px 0px 0px 0px',
-							margin: '0px 0px 0px 0px',
-							position: 'absolute',
-							top: '-5px',
-							left: '2px',
-						},
-					}}
-					variant="standard"
-					placeholder="yourlink"
-				></TextField>
+				<BigTextInput
+					placeHolder="Your Link"
+					onChange={handleChange}
+					input={link}
+				></BigTextInput>
 			</Box>
 			<Box
 				sx={{
@@ -86,7 +80,7 @@ const CreateLinkPage = () => {
 					right: '16px',
 				}}
 			>
-				<OnboardNextButton color={color} />
+				<OnboardNextButton onClick={handleNextClick} active={active} />
 			</Box>
 		</>
 	);
