@@ -14,7 +14,7 @@ const CreateLinkPage = () => {
 	const [active, setActive] = useState<boolean>(true);
 	const [linkColor, setLinkColor] = useState('gray');
 
-	const handleChange = (
+	const handleInputChange = (
 		e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>,
 	) => {
 		setLink(e.target.value);
@@ -38,8 +38,12 @@ const CreateLinkPage = () => {
 
 	const handleNextClick = () => {
 		// TODO: 다음으로 이동
-		alert('다음으로 이동 논리 필요');
+		alert(`input: ${link} 다음으로 이동 논리 필요`);
 		return;
+	};
+
+	const handleClearClick = () => {
+		setLink('');
 	};
 
 	return (
@@ -71,7 +75,8 @@ const CreateLinkPage = () => {
 				</Typography>
 				<BigTextInput
 					placeHolder="yourlink"
-					onChange={handleChange}
+					onChange={handleInputChange}
+					onClear={handleClearClick}
 					input={link}
 				/>
 			</Stack>
