@@ -1,5 +1,13 @@
 import React from 'react';
-import { TextField, useTheme } from '@mui/material';
+import { Box, BoxProps, Stack, TextField } from '@mui/material';
+import SVGButton from '@components/Button/SVGButton';
+import rounded_clear_18px from '@icons/rounded_clear_18px';
+import { styled } from '@mui/material/styles';
+
+const StyledBox = styled(Box)<BoxProps>(({ theme }) => ({
+	marginTop: '4px',
+	transition: `opacity 0.5s ease`,
+}));
 
 interface BigTextInputProps {
 	placeHolder: string;
@@ -7,43 +15,32 @@ interface BigTextInputProps {
 		e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>,
 	) => void;
 	input: string;
+	onClear: () => void;
 }
 
-// TODO: See to whether caret width could be set.
-
 const BigTextInput = (props: BigTextInputProps) => {
-	const { placeHolder, onChange, input } = props;
-	const theme = useTheme();
+	const { placeHolder, onChange, input, onClear } = props;
 	return (
-		<TextField
-			onChange={onChange}
-			InputProps={{
-				disableUnderline: true,
-				// TODO: placeholder color needs to change
-				// sx: {
-				// 	'&::placeholder': {
-				// 		color: 'green',
-				// 	},
-				// },
-				style: {
-					color: theme.palette.common.brand.onprimary.container,
-					fontWeight: '800',
-					fontSize: '21px',
-					minWidth: '200px',
-					padding: '0px 0px 0px 0px',
-					margin: '0px 0px 0px 0px',
-					position: 'absolute',
-					top: '-5px',
-					left: '2px',
-					// Cannot set the caret width.
-					caretColor: theme.palette.common.brand.onprimary.container,
-				},
-			}}
-			variant="standard"
-			placeholder={placeHolder}
-		>
-			{input}
-		</TextField>
+		<Stack flexDirection="row" justifyContent="space-between" sx={{ flex: 1 }}>
+			<TextField
+				fullWidth
+				onChange={onChange}
+				variant="standard"
+				placeholder={placeHolder}
+				InputProps={{
+					disableUnderline: true,
+				}}
+				value={input}
+			/>
+			<StyledBox sx={{ opacity: input.length > 0 ? 0.2 : 0 }}>
+				<SVGButton
+					source={rounded_clear_18px}
+					disabled={input.length <= 0}
+					onClick={onClear}
+					viewBox="0 0 18 19"
+				/>
+			</StyledBox>
+		</Stack>
 	);
 };
 

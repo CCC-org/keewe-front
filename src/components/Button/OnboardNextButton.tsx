@@ -2,7 +2,7 @@ import React from 'react';
 
 import { SvgIcon, useTheme } from '@mui/material';
 import Button, { ButtonProps } from '@mui/material/Button';
-import arrow_forward from '@icons/arrow_forward';
+import arrow_forward_24px from '@icons/arrow_forward_24px';
 
 import { NextPage } from 'next';
 import { styled } from '@mui/material/styles';
@@ -21,7 +21,7 @@ const StyledButton = styled(Button)<ButtonProps>(({ theme }) => ({
 		backgroundColor: `${theme.palette.common.brand.onprimary.main}`,
 		opacity: 0.2,
 	},
-	'&:focus': {
+	'&:focus, &:hover': {
 		color: `${theme.palette.common.graphic.white}`,
 		backgroundColor: `${theme.palette.common.brand.onprimary.main}`,
 	},
@@ -45,7 +45,7 @@ const OnboardNextButton: NextPage<OnboardNextButtonProps> = (
 			sx={{ backgroundColor: theme.palette.common.brand.onprimary.main }}
 		>
 			<SvgIcon>
-				<path d={arrow_forward} />
+				<path d={arrow_forward_24px} />
 			</SvgIcon>
 		</StyledButton>
 	);
