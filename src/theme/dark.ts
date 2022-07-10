@@ -123,7 +123,7 @@ const SYSTEM = {
 };
 
 const TYPOGRAPHY = {
-	color: '#121314',
+	color: GRAPHIC.black,
 	display: {
 		fontWeight: 700,
 		fontSize: '30px',
@@ -184,6 +184,23 @@ const COMPONENTS = {
 				fontFamily: 'Apple SD Gothic Neo',
 				height: '100vh',
 				backgroundColor: BRAND.surface.main,
+			},
+		},
+	},
+	MuiInputBase: {
+		styleOverrides: {
+			input: {
+				fontFamily: 'Apple SD Gothic Neo',
+				color: BRAND.onprimary.container,
+				fontWeight: 700,
+				fontSize: '22px',
+				lineHeight: '28px',
+				height: '100%',
+				padding: '0px',
+				'&::placeholder': {
+					color: GRAPHIC.black,
+					opacity: '0.3',
+				},
 			},
 		},
 	},
