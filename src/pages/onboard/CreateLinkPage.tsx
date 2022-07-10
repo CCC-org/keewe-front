@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PrevArrowSection from '@components/Header/PrevArrowSection';
 import Box from '@mui/material/Box';
-import { Typography } from '@mui/material';
+import { Stack, Typography } from '@mui/material';
 import TextField from '@mui/material/TextField';
 import { useTheme } from '@mui/material';
 import OnboardNextButton from '@components/Button/OnboardNextButton';
@@ -53,7 +53,9 @@ const CreateLinkPage = () => {
 					언제든지 링크를 바꿀 수 있어요.
 				</Typography>
 			</Box>
-			<Box
+			<Stack
+				flexDirection="row"
+				gap="2px"
 				sx={{
 					borderBottom: `2px solid ${theme.palette.common.brand.onprimary.container}`,
 					margin: '30px 16px 0px 16px',
@@ -63,16 +65,16 @@ const CreateLinkPage = () => {
 				<Typography
 					variant="headline1"
 					color={theme.palette.common.graphic.black}
-					sx={{ opacity: '0.3', padding: '4px 0px 5px 0px' }}
+					sx={{ opacity: '0.3' }}
 				>
 					keewe.shop/
 				</Typography>
 				<BigTextInput
-					placeHolder="Your Link"
+					placeHolder="yourlink"
 					onChange={handleChange}
 					input={link}
-				></BigTextInput>
-			</Box>
+				/>
+			</Stack>
 			<Box
 				sx={{
 					position: 'absolute',
