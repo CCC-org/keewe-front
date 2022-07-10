@@ -4,11 +4,13 @@ import SvgIcon from '@mui/material/SvgIcon';
 
 interface SVGButtonProps {
 	source: string;
+	onClick: () => void;
 }
 
-const SVGButton = ({ source }: SVGButtonProps) => {
+const SVGButton = ({ source, onClick }: SVGButtonProps) => {
 	return (
 		<Button
+			onClick={onClick}
 			sx={{
 				minWidth: '20px',
 				minHeight: '20px',
