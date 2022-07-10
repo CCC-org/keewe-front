@@ -1,16 +1,19 @@
 import React from 'react';
-import Button from '@mui/material/Button';
+import Button, { ButtonProps } from '@mui/material/Button';
 import SvgIcon from '@mui/material/SvgIcon';
 
 interface SVGButtonProps {
 	source: string;
+	disabled?: boolean;
+	viewBox?: string;
 	onClick: () => void;
 }
 
-const SVGButton = ({ source, onClick }: SVGButtonProps) => {
+const SVGButton = ({ source, disabled, viewBox, onClick }: SVGButtonProps) => {
 	return (
 		<Button
 			onClick={onClick}
+			disabled={disabled}
 			sx={{
 				minWidth: '20px',
 				minHeight: '20px',
@@ -20,7 +23,7 @@ const SVGButton = ({ source, onClick }: SVGButtonProps) => {
 				padding: '0px',
 			}}
 		>
-			<SvgIcon>
+			<SvgIcon viewBox={viewBox}>
 				<path d={source} />
 			</SvgIcon>
 		</Button>
