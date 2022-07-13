@@ -17,7 +17,7 @@ const index = (props: any) => {
 
 export async function getServerSideProps(context: any) {
 	const { query } = context;
-
+	// TODO: JWT를 localStorage에 집언허어야함
 	try {
 		const res = await fetch(
 			`https://api-keewe.com/api/v1/user/kakao?code=${query.code}`,
