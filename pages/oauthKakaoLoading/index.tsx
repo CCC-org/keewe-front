@@ -6,6 +6,8 @@ import React from 'react';
 const index = (props: any) => {
 	return (
 		<div>
+			<p>api-keewe.com/api/v1/user/kakao?code=query.code</p>
+			<p>에 관한 내용들을 담은 페이지</p>
 			<p>{props.data.message}</p>
 			<p>{props.data.data.userId}</p>
 			<p>{props.data.data.accessToken}</p>
