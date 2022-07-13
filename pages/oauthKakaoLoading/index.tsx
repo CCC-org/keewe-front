@@ -1,16 +1,15 @@
-import React, { useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
+import React from 'react';
 
 /*
 	https://api-keewe.com/api/v1/user/kakao?code={path}
 */
 const index = (props: any) => {
-	console.log(props.data);
+	console.log(props);
 	return (
 		<div>
-			<h1>{props.message}</h1>
-			<h1>{props.data.userId}</h1>
-			<h1>{props.data.accessToken}</h1>
+			<p>{props.data.message}</p>
+			<p>{props.data.data.userId}</p>
+			<p>{props.data.data.accessToken}</p>
 		</div>
 	);
 };
@@ -26,7 +25,6 @@ export async function getServerSideProps(context: any) {
 		return {
 			props: {
 				data: data,
-				fake: 'fake',
 			},
 		};
 	} catch (e) {
