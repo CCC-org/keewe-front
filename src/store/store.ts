@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-// import userSlice from './slices/userSlice';
+import userSlice from './slices/userSlice';
 import {
 	useDispatch as useDispatchBase,
 	useSelector as useSelectorBase,
@@ -10,7 +10,7 @@ import {
  */
 export const store = configureStore({
 	reducer: {
-		// user: userSlice,
+		user: userSlice,
 	},
 });
 
