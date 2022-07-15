@@ -5,7 +5,7 @@ import rounded_clear_18px from '@icons/rounded_clear_18px';
 import { styled } from '@mui/material/styles';
 
 const StyledBox = styled(Box)<BoxProps>(({ theme }) => ({
-	marginTop: '4px',
+	marginTop: '4px',// 1 하면 딱 좋더라
 	transition: `opacity 0.5s ease`,
 }));
 

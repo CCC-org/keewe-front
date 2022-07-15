@@ -29,3 +29,14 @@ module.exports = withPlugins(
 		},
 	},
 );
+
+module.exports = {
+	async rewrites() {
+		return [
+			{
+				source: '/api/:path*',
+				destination: 'https://api-keewe.com/api/:path*',
+			},
+		];
+	},
+};
