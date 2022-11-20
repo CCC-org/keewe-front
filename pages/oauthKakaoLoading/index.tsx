@@ -1,11 +1,11 @@
 import React from 'react';
-// import Lottie from 'react-lottie';
 import { Player } from '@lottiefiles/react-lottie-player';
 import MainLottie from '../../public/images/lottie/mainLottie.json';
+import styles from './index.module.css';
 
 const KakaoOauthRedirectionPage = () => {
 	return (
-		<div>
+		<div className={styles.container}>
 			<Player
 				src={MainLottie}
 				background="transparent"
