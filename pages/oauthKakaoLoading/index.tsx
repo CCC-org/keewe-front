@@ -12,7 +12,7 @@ const KakaoOauthRedirectionPage = () => {
 				speed={1}
 				autoplay={true}
 				loop={true}
-				style={{ width: '300px', height: '300px' }}
+				style={{ width: '130px', height: '130px' }}
 			/>
 		</div>
 	);
