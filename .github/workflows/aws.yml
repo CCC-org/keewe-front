@@ -17,7 +17,9 @@ jobs:
         run: npm install
 
       - name: Build
-        run: npm run build
+        run: |
+          npm run build
+          yarn next export
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
@@ -27,6 +29,4 @@ jobs:
           aws-region: ap-northeast-2
 
       - name: Upload to S3
-        run: |
-          ls
-          aws s3 sync ./build s3://keewe-front --delete
+        run: aws s3 sync ./out s3://keewe-front --delete
