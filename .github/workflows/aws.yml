@@ -28,5 +28,5 @@ jobs:
 
       - name: Upload to S3
         run: |
-        ls
-        aws s3 sync ./build s3://keewe-front --delete
+          ls
+          aws s3 sync ./build s3://keewe-front --delete
