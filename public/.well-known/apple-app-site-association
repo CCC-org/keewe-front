@@ -1,0 +1,17 @@
+{
+	"applinks": {
+		"details": [
+			{
+				"appIDs": [
+					"BABKUFS595.com.CCCorg.keewe"
+				],
+				"components": [
+					{
+						"/": "/link/*",
+						"comment": "Matches any URL whose path starts with /buy/"
+					}
+				]
+			}
+		]
+	}
+}
