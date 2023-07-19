@@ -7,7 +7,7 @@
 				],
 				"components": [
 					{
-						"/": "/link/*",
+						"/": "*",
 						"comment": "Matches any URL whose path starts with /buy/"
 					}
 				]
