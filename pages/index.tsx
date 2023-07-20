@@ -16,6 +16,7 @@ const Home: NextPage = () => {
 				height: '100vh',
 			}}
 		>
+			<>https://d1m48degai0zet.cloudfront.net/link/challenge/me</>
 			<Player
 				src={MainLottie}
 				background="transparent"
