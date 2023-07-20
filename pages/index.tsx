@@ -18,8 +18,7 @@ const Home: NextPage = () => {
 			}}
 		>
 			<Link href="https://d1m48degai0zet.cloudfront.net/link/challenge/me">
-				{' '}
-				move to app{' '}
+				move to app
 			</Link>
 			<Player
 				src={MainLottie}
