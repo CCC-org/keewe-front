@@ -16,6 +16,14 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
+      - name: Set up PEM key
+        run: echo "${{ secrets.EC2_PEM_KEY }}" > ec2.pem
+        env:
+          SSH_PRIVATE_KEY: ec2.pem
+
+      - name: Set correct permissions for PEM key
+        run: chmod 400 ec2.pem
+        
       - name: Build
         run: |
           npm run build
@@ -23,9 +31,6 @@ jobs:
 
       - name: Deploy to EC2
         uses: easingthemes/ssh-deploy@v2.1.5
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-          SSH_PUBLIC_KEY: ${{ secrets.SSH_PUBLIC_KEY }}
         with:
           args: |
             --src=./out/
