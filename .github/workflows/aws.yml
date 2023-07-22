@@ -14,13 +14,12 @@ jobs:
         run: |
           echo "${{ secrets.EC2_PEM }}" > $HOME/key.pem
           chmod 400 $HOME/key.pem
-          ssh -i $HOME/key.pem -o StrictHostKeyChecking=no ${SSH_USER}@${SSH_HOSTS} '~/script.sh'
-          cd /home/keewe
+          ssh -i $HOME/key.pem -o StrictHostKeyChecking=no ${SSH_USER}@${SSH_HOSTS} 'cd /home/keewe
           git checkout main
           git pull
           npm install
           npm run build
-          yarn next export
+          yarn next export'
         env:
           SSH_USER: ${{secrets.EC2_USER_NAME}}
           SSH_HOSTS: ${{secrets.EC2_IP_ADDRESS}}
