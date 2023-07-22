@@ -26,7 +26,7 @@ jobs:
         run: tar -cvf out.tar ./out
           
       - name: Copy files to EC2
-        uses: appleboy/scp-action@v0.1.3
+        uses: appleboy/scp-action@v0.1.4
         with:
           host: ${{ secrets.EC2_IP_ADDRESS }} # Host of the EC2 instance
           username: ${{ secrets.EC2_USER_NAME }} # Username to login
@@ -36,7 +36,7 @@ jobs:
           target: "/home/keewe"
 
       - name: Deploy to EC2
-        uses: appleboy/ssh-action@v0.1.3
+        uses: appleboy/ssh-action@v0.1.4
         with:
           host: ${{ secrets.EC2_IP_ADDRESS }} # Host of the EC2 instance
           username: ${{ secrets.EC2_USER_NAME }} # Username to login
