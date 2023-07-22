@@ -22,6 +22,18 @@ jobs:
           npm run build
           yarn next export
           
+      - name: Upload Build Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: build
+          path: out/
+
+      - name: Download Build Artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: build
+          path: out/
+          
       - name: Deploy to EC2
         uses: appleboy/ssh-action@master
         with:
@@ -31,4 +43,4 @@ jobs:
           script: |
             ls
             rm -rf /var/out/* # Clear the current directory
-            cp -R ./build/* /var/out/ # Copy the build files to the directory
+            tar -xvf build.tar /var/out/ # Copy the build files to the directory
