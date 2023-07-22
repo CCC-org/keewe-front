@@ -28,5 +28,5 @@ jobs:
           SSH_PUBLIC_KEY: ${{ secrets.SSH_PUBLIC_KEY }}
         with:
           args: |
-            --src=./build/  # npm build로 생성된 파일 위치
+            --src=./out/
             --remote=ubuntu@${{ secrets.EC2_IP_ADDRESS }}:/var/www/html/ 
