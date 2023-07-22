@@ -30,4 +30,4 @@ jobs:
           key: ${{ secrets.EC2_PEM }} # Key to connect to EC2 instance
           script: |
             rm -rf /var/out/* # Clear the current directory
-            cp -R ./out/* /var/out/ # Copy the build files to the directory
+            cp -R ./build/* /var/out/ # Copy the build files to the directory
