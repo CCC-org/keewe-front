@@ -32,7 +32,7 @@ jobs:
           username: ${{ secrets.EC2_USER_NAME }} # Username to login
           key: ${{ secrets.EC2_PEM }} # Key to connect to EC2 instance
           source: "out.tar"
-          target: "/var/out"
+          target: "/home/keewe"
 
       - name: Deploy to EC2
         uses: appleboy/ssh-action@master
@@ -41,6 +41,6 @@ jobs:
           username: ${{ secrets.EC2_USER_NAME }} # Username to login
           key: ${{ secrets.EC2_PEM }} # Key to connect to EC2 instance
           script: |
-            cd /var/out/
+            cd /home/keewe/
             tar -xvf out.tar
             rm out.tar
