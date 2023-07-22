@@ -27,7 +27,7 @@ jobs:
         with:
           host: ${{ secrets.EC2_IP_ADDRESS }} # Host of the EC2 instance
           username: ${{ secrets.AWS_ACCESS_KEY_ID }} # Username to login
-          key: ${{ secrets.AWS_SECRET_ACCESS_KEY }} # Key to connect to EC2 instance
+          key: ${{ secrets.EC2_PEM }} # Key to connect to EC2 instance
           script: |
             rm -rf /etc/out/* # Clear the current directory
             cp -R ./out/* /etc/out// # Copy the build files to the directory
