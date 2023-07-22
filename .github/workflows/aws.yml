@@ -31,6 +31,7 @@ jobs:
           host: ${{ secrets.EC2_IP_ADDRESS }} # Host of the EC2 instance
           username: ${{ secrets.EC2_USER_NAME }} # Username to login
           key: ${{ secrets.EC2_PEM }} # Key to connect to EC2 instance
+          port: 22
           source: "out.tar"
           target: "/home/keewe"
 
@@ -40,6 +41,7 @@ jobs:
           host: ${{ secrets.EC2_IP_ADDRESS }} # Host of the EC2 instance
           username: ${{ secrets.EC2_USER_NAME }} # Username to login
           key: ${{ secrets.EC2_PEM }} # Key to connect to EC2 instance
+          port: 22
           script: |
             cd /home/keewe/
             tar -xvf out.tar
