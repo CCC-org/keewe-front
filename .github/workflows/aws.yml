@@ -1,4 +1,4 @@
-name: Build and Deploy
+name: Checkout and Build on EC2
 
 on:
   push:
@@ -6,43 +6,20 @@ on:
       - main
 
 jobs:
-  build-and-deploy:
+  checkout-and-build-on-EC2:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2
-        
-
-      - name: Install Dependencies
-        run: npm install
-        
-      - name: Build
-        run: |
-          npm run build
-          yarn next export
-          
-      - name: Create tar file
-        run: tar -cvf out.tar ./out
-          
-      - name: Copy files to EC2
-        uses: appleboy/scp-action@v0.1.4
+      - name: Execute commands on EC2 instance
+        uses: appleboy/ssh-action@master
         with:
-          host: ${{ secrets.EC2_IP_ADDRESS }} # Host of the EC2 instance
-          username: ${{ secrets.EC2_USER_NAME }} # Username to login
-          key: ${{ secrets.EC2_PEM }} # Key to connect to EC2 instance
-          port: 22
-          source: "out.tar"
-          target: "/home/keewe"
-
-      - name: Deploy to EC2
-        uses: appleboy/ssh-action@v0.1.4
-        with:
-          host: ${{ secrets.EC2_IP_ADDRESS }} # Host of the EC2 instance
-          username: ${{ secrets.EC2_USER_NAME }} # Username to login
-          key: ${{ secrets.EC2_PEM }} # Key to connect to EC2 instance
-          port: 22
+          host: ${{ secrets.EC2_IP_ADDRESS }}
+          username: ${{ secrets.EC2_USER_NAME }}
+          key: ${{ secrets.EC2_PEM }}
           script: |
-            cd /home/keewe/
-            tar -xvf out.tar
-            rm out.tar
+            cd /home/keewe
+            git checkout main
+            git pull
+            npm install
+            npm run build
+            yarn next export
