@@ -25,6 +25,15 @@ jobs:
       - name: Create tar file
         run: tar -cvf out.tar ./out
           
+      - name: Copy files to EC2
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.EC2_IP_ADDRESS }} # Host of the EC2 instance
+          username: ${{ secrets.EC2_USER_NAME }} # Username to login
+          key: ${{ secrets.EC2_PEM }} # Key to connect to EC2 instance
+          source: "out.tar"
+          target: "/var/out"
+
       - name: Deploy to EC2
         uses: appleboy/ssh-action@master
         with:
@@ -32,7 +41,6 @@ jobs:
           username: ${{ secrets.EC2_USER_NAME }} # Username to login
           key: ${{ secrets.EC2_PEM }} # Key to connect to EC2 instance
           script: |
-            rm -rf /var/out/*
-            scp build.tar /var/out/
             cd /var/out/
             tar -xvf out.tar
+            rm out.tar
