@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - name: Execute commands on EC2 instance
-        uses: appleboy/ssh-action@master
+        uses: appleboy/ssh-action@v0.1.3
         with:
           host: ${{ secrets.EC2_IP_ADDRESS }}
           username: ${{ secrets.EC2_USER_NAME }}
