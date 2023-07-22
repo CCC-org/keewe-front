@@ -22,17 +22,8 @@ jobs:
           npm run build
           yarn next export
           
-      - name: Upload Build Artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: build
-          path: out/
-
-      - name: Download Build Artifact
-        uses: actions/download-artifact@v2
-        with:
-          name: build
-          path: out/
+      - name: Create tar file
+        run: tar -cvf out.tar ./out
           
       - name: Deploy to EC2
         uses: appleboy/ssh-action@master
@@ -41,6 +32,7 @@ jobs:
           username: ${{ secrets.EC2_USER_NAME }} # Username to login
           key: ${{ secrets.EC2_PEM }} # Key to connect to EC2 instance
           script: |
-            ls
-            rm -rf /var/out/* # Clear the current directory
-            tar -xvf build.tar /var/out/ # Copy the build files to the directory
+            rm -rf /var/out/*
+            scp build.tar /var/out/
+            cd /var/out/
+            tar -xvf out.tar
