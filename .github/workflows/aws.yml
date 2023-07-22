@@ -12,9 +12,6 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
-
-      - name: Set correct permissions for PEM key
-        run: chmod 400 ec2.pem
         
       - name: Build
         run: |
