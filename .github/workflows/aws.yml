@@ -13,14 +13,6 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
-      - name: Install Dependencies
-        run: npm install
-
-      - name: Set up PEM key
-        run: echo "${{ secrets.EC2_PEM_KEY }}" > ec2.pem
-        env:
-          SSH_PRIVATE_KEY: ec2.pem
-
       - name: Set correct permissions for PEM key
         run: chmod 400 ec2.pem
         
@@ -28,10 +20,13 @@ jobs:
         run: |
           npm run build
           yarn next export
-
+          
       - name: Deploy to EC2
-        uses: easingthemes/ssh-deploy@v2.1.5
+        uses: appleboy/ssh-action@master
         with:
-          args: |
-            --src=./out/
-            --remote=ubuntu@${{ secrets.EC2_IP_ADDRESS }}:/var/www/html/ 
+          host: ${{ secrets.EC2_IP_ADDRESS }} # Host of the EC2 instance
+          username: ${{ secrets.AWS_ACCESS_KEY_ID }} # Username to login
+          key: ${{ secrets.AWS_SECRET_ACCESS_KEY }} # Key to connect to EC2 instance
+          script: |
+            rm -rf /etc/out/* # Clear the current directory
+            cp -R ./out/* /etc/out// # Copy the build files to the directory
