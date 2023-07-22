@@ -12,7 +12,7 @@ jobs:
     steps:
       - name: Build and deploy
         run: |
-          echo "$SSH_PEM" >> $HOME/key.pem
+          echo "${{ secrets.EC2_PEM }}" > $HOME/key.pem
           chmod 400 $HOME/key.pem
           ssh -i $HOME/key.pem -o StrictHostKeyChecking=no ${SSH_USER}@${SSH_HOSTS} '~/script.sh'
           cd /home/keewe
@@ -24,4 +24,3 @@ jobs:
         env:
           SSH_USER: ${{secrets.EC2_USER_NAME}}
           SSH_HOSTS: ${{secrets.EC2_IP_ADDRESS}}
-          SSH_PEM: ${{secrets.EC2_PEM}}
