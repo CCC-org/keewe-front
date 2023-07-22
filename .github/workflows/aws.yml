@@ -26,7 +26,7 @@ jobs:
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.EC2_IP_ADDRESS }} # Host of the EC2 instance
-          username: ${{ secrets.AWS_ACCESS_KEY_ID }} # Username to login
+          username: ${{ secrets.EC2_USER_NAME }} # Username to login
           key: ${{ secrets.EC2_PEM }} # Key to connect to EC2 instance
           script: |
             rm -rf /etc/out/* # Clear the current directory
