@@ -10,16 +10,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Execute commands on EC2 instance
-        uses: appleboy/ssh-action@v0.1.3
-        with:
-          host: ${{ secrets.EC2_IP_ADDRESS }}
-          username: ${{ secrets.EC2_USER_NAME }}
-          key: ${{ secrets.EC2_PEM }}
-          script: |
-            cd /home/keewe
-            git checkout main
-            git pull
-            npm install
-            npm run build
-            yarn next export
+      - name: Build and deploy
+        run: |
+          echo "$SSH_PEM" >> $HOME/key.pem
+          chmod 400 $HOME/key.pem
+          ssh -i $HOME/key.pem -o StrictHostKeyChecking=no ${SSH_USER}@${SSH_HOSTS} '~/script.sh'
+          cd /home/keewe
+          git checkout main
+          git pull
+          npm install
+          npm run build
+          yarn next export
+        env:
+          SSH_USER: ${{secrets.EC2_USER_NAME}}
+          SSH_HOSTS: ${{secrets.EC2_IP_ADDRESS}}
+          SSH_PEM: ${{secrets.EC2_PEM}}
