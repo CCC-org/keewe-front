@@ -27,6 +27,6 @@ jobs:
           username: ${{ secrets.EC2_USER_NAME }}
           key: ${{ secrets.EC2_PEM }}
           port: ${{ secrets.22 }}
-          source: "build/*"
+          source: ".next/*"
           strip_components: 1
           target: "/keewe"
