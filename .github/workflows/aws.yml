@@ -4,7 +4,6 @@ on:
   push:
     branches: 
       - main
-    types: [closed]
 
 jobs:
   checkout-and-build-on-EC2:
