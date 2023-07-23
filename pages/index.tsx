@@ -17,9 +17,6 @@ const Home: NextPage = () => {
 				height: '100vh',
 			}}
 		>
-			<Link href="https://d1m48degai0zet.cloudfront.net/link/challenge/me">
-				move to app
-			</Link>
 			<Player
 				src={MainLottie}
 				background="transparent"
