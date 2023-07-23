@@ -26,7 +26,7 @@ jobs:
           host: ${{ secrets.EC2_IP_ADDRESS }}
           username: ${{ secrets.EC2_USER_NAME }}
           key: ${{ secrets.EC2_PEM }}
-          port: ${{ secrets.22 }}
+          port: 22
           source: ".next/*"
           strip_components: 1
           target: "/keewe"
