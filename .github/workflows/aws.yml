@@ -14,7 +14,7 @@ jobs:
         run: |
           echo "${{ secrets.EC2_PEM }}" > $HOME/key.pem
           chmod 400 $HOME/key.pem
-          ssh -i $HOME/key.pem -o StrictHostKeyChecking=no ${SSH_USER}@${SSH_HOSTS} "cd /home/ec2-user/keewe/keewe-front; sudo git pull origin main; sudo npm install; sudo npm run build; sudo yarn next export;"
+          ssh -i $HOME/key.pem -o StrictHostKeyChecking=no ${SSH_USER}@${SSH_HOSTS} "cd /home/ec2-user/keewe/keewe-front; sudo git pull origin main; sudo npm install; sudo npm run build; sudo npm start;"
         env:
           SSH_USER: ${{secrets.EC2_USER_NAME}}
           SSH_HOSTS: ${{secrets.EC2_IP_ADDRESS}}
