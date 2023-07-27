@@ -1,0 +1,12 @@
+[
+	{
+		"relation": ["delegate_permission/common.handle_all_urls"],
+		"target": {
+			"namespace": "android_app",
+			"package_name": "com.akdlsz21.keewe",
+			"sha256_cert_fingerprints": [
+				"2A:6C:B0:87:8E:22:17:93:37:6D:91:1B:9E:9D:3C:36:58:6F:01:67:AD:2E:CE:BF:D8:90:FE:81:F5:BA:E8:14"
+			]
+		}
+	}
+]
