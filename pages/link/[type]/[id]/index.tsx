@@ -5,7 +5,7 @@ import MainLottie from '../../../../public/images/lottie/mainLottie.json';
 import { isMobile } from 'react-device-detect';
 import { useRouter } from 'next/router';
 
-const oauthAppleLoading: NextPage = () => {
+const LinkPage: NextPage = () => {
 	const router = useRouter();
 	const { type, id } = router.query;
 
@@ -37,4 +37,4 @@ const oauthAppleLoading: NextPage = () => {
 	);
 };
 
-export default oauthAppleLoading;
+export default LinkPage;
