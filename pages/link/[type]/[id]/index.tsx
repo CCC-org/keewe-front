@@ -10,7 +10,7 @@ const oauthAppleLoading: NextPage = () => {
 	const { type, id } = router.query;
 
 	if (isMobile) {
-		router.push(`keewe://link/${type}/${id}`);
+		router.push(`keewe:///link/${type}/${id}`);
 	}
 
 	return (
