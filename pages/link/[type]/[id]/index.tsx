@@ -1,9 +1,18 @@
 import React from 'react';
 import type { NextPage } from 'next';
 import { Player } from '@lottiefiles/react-lottie-player';
-import MainLottie from '../../public/images/lottie/mainLottie.json';
+import MainLottie from '../../../../public/images/lottie/mainLottie.json';
+import { isMobile } from 'react-device-detect';
+import { useRouter } from 'next/router';
 
 const oauthAppleLoading: NextPage = () => {
+	const router = useRouter();
+	const { type, id } = router.query;
+
+	if (isMobile) {
+		router.push(`keewe://link/${type}/${id}`);
+	}
+
 	return (
 		<div
 			style={{
