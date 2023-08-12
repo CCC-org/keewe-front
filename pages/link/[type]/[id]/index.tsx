@@ -1,17 +1,13 @@
 import React from 'react';
-import type { NextPage, GetServerSideProps } from 'next';
+import type { NextPage } from 'next';
 import { Player } from '@lottiefiles/react-lottie-player';
 import MainLottie from '../../../../public/images/lottie/mainLottie.json';
 import { isMobile } from 'react-device-detect';
 import { useRouter } from 'next/router';
 
-interface LinkPageProps {
-	type: string;
-	id: string;
-}
-
-const LinkPage: NextPage<LinkPageProps> = ({ type, id }: LinkPageProps) => {
+const oauthAppleLoading: NextPage = () => {
 	const router = useRouter();
+	const { type, id } = router.query;
 
 	if (isMobile) {
 		router.push(`keewe:///link/${type}/${id}`);
@@ -41,17 +37,4 @@ const LinkPage: NextPage<LinkPageProps> = ({ type, id }: LinkPageProps) => {
 	);
 };
 
-export default LinkPage;
-
-export const getServerSideProps: GetServerSideProps<LinkPageProps> = async (
-	context,
-) => {
-	const { type, id } = context.query;
-
-	return {
-		props: {
-			type: type as string,
-			id: id as string,
-		},
-	};
-};
+export default oauthAppleLoading;
