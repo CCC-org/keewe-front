@@ -10,7 +10,8 @@ const LinkPage: NextPage = () => {
 	const { type, id } = router.query;
 
 	if (isMobile) {
-		router.push(`keewe:///link/${type}/${id}`);
+		if (type !== undefined && id !== undefined)
+			router.push(`keewe:///link/${type}/${id}`);
 	}
 
 	return (
