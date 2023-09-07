@@ -39,9 +39,9 @@ const LinkPage: NextPage = () => {
 
 	let imageUrl = undefined;
 	if (type === 'challenge') {
-		imageUrl = 'images/tagImages/challenge';
+		imageUrl = 'images/tagImages/challenge.png';
 	} else if (type !== undefined) {
-		imageUrl = 'images/tagImages/other';
+		imageUrl = 'images/tagImages/other.png';
 	}
 
 	return (
