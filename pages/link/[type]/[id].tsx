@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import type { NextPage } from 'next';
+import Head from 'next/head';
 import { Player } from '@lottiefiles/react-lottie-player';
 import MainLottie from '../../../public/images/lottie/mainLottie.json';
 import { isMobile, isAndroid, isIOS } from 'react-device-detect';
@@ -10,15 +11,17 @@ const LinkPage: NextPage = () => {
 	const { type, id } = router.query;
 
 	useEffect(() => {
-		if (isMobile) router.push(`keewe:///link/${type}/${id}`);
+		if (isMobile) {
+			router.push(`keewe:///link/${type}/${id}`);
 
-		const timer = setTimeout(() => {
-			if (document.hidden) {
-				clearTimeout(timer);
-			} else {
-				move();
-			}
-		}, 500);
+			const timer = setTimeout(() => {
+				if (document.hidden) {
+					clearTimeout(timer);
+				} else {
+					move();
+				}
+			}, 500);
+		}
 	}, [isMobile]);
 
 	const move = () => {
@@ -34,6 +37,13 @@ const LinkPage: NextPage = () => {
 		}
 	};
 
+	let imageUrl = undefined;
+	if (type === 'challenge') {
+		imageUrl = 'images/tagImages/challenge';
+	} else if (type !== undefined) {
+		imageUrl = 'images/tagImages/other';
+	}
+
 	return (
 		<div
 			style={{
@@ -46,6 +56,20 @@ const LinkPage: NextPage = () => {
 				height: '100vh',
 			}}
 		>
+			<Head>
+				<meta property="og:type" content="keewe" />
+				<meta property="og:site_name" content="keewe" />
+				<meta property="og:title" content="keewe" />
+				<meta property="og:url" content="http://keewe.kr" />
+				<meta
+					name="description"
+					property="og:description"
+					content="keewe에서 보기"
+				/>
+				{imageUrl && (
+					<meta name="image" property="og:image" content={imageUrl} />
+				)}
+			</Head>
 			<Player
 				src={MainLottie}
 				background="transparent"
