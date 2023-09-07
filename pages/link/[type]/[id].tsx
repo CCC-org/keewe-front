@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import type { NextPage } from 'next';
 import { Player } from '@lottiefiles/react-lottie-player';
 import MainLottie from '../../../public/images/lottie/mainLottie.json';
@@ -9,22 +9,30 @@ const LinkPage: NextPage = () => {
 	const router = useRouter();
 	const { type, id } = router.query;
 
-	if (isMobile) {
-		if (type !== undefined && id !== undefined) {
-			try {
-				router.push(`keewe:///link/${type}/${id}`);
-			} catch (e) {
-				if (isAndroid) {
-					router.push(
-						'http://play.google.com/store/apps/details?id=com.akdlsz21.keewe',
-					);
-				}
-				if (isIOS) {
-					router.push('https://apps.apple.com/kr/app/keewe/id6451339222');
-				}
+	useEffect(() => {
+		if (isMobile) router.push(`keewe:///link/${type}/${id}`);
+
+		const timer = setTimeout(() => {
+			if (document.hidden) {
+				clearTimeout(timer);
+			} else {
+				move();
+			}
+		}, 500);
+	}, [isMobile]);
+
+	const move = () => {
+		if (window.confirm('스토어로 이동하시겠습니까?')) {
+			if (isAndroid) {
+				router.push(
+					'http://play.google.com/store/apps/details?id=com.akdlsz21.keewe',
+				);
+			}
+			if (isIOS) {
+				router.push('https://apps.apple.com/kr/app/keewe/id6451339222');
 			}
 		}
-	}
+	};
 
 	return (
 		<div
