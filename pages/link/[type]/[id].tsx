@@ -66,7 +66,11 @@ const LinkPage: NextPage = () => {
 					property="og:description"
 					content="keewe에서 보기"
 				/>
-				<meta name="image" property="og:image" content={imageUrl} />
+				<meta
+					name="image"
+					property="og:image"
+					content="/images/tagImages/other.png"
+				/>
 			</Head>
 			<Player
 				src={MainLottie}
