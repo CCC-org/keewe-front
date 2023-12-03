@@ -29,4 +29,4 @@ jobs:
           port: 22
           source: '.next/*'
           strip_components: 1
-          target: '/keewe-front'
+          target: '/keewe-front/.next'
