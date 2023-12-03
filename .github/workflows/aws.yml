@@ -27,6 +27,16 @@ jobs:
           username: ${{ secrets.EC2_USER_NAME }}
           key: ${{ secrets.EC2_PEM }}
           port: 22
-          source: '*'
+          source: '.next/*'
           strip_components: 1
-          target: '/keewe-front'
+          target: '/keewe-front/.next'
+      - name: Deploy source outputs
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.EC2_IP_ADDRESS }}
+          username: ${{ secrets.EC2_USER_NAME }}
+          key: ${{ secrets.EC2_PEM }}
+          port: 22
+          source: 'src/*'
+          strip_components: 1
+          target: '/keewe-front/src'
