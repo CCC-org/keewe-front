@@ -27,6 +27,6 @@ jobs:
           username: ${{ secrets.EC2_USER_NAME }}
           key: ${{ secrets.EC2_PEM }}
           port: 22
-          source: '.next/*'
+          source: '*'
           strip_components: 1
-          target: '/keewe-front/.next'
+          target: '/keewe-front'
