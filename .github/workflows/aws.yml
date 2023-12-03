@@ -2,7 +2,7 @@ name: Checkout and Build on EC2
 
 on:
   push:
-    branches: 
+    branches:
       - main
 
 jobs:
@@ -10,11 +10,23 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Build and deploy
-        run: |
-          echo "${{ secrets.EC2_PEM }}" > $HOME/key.pem
-          chmod 600 $HOME/key.pem
-          ssh -i $HOME/key.pem -o StrictHostKeyChecking=no ${SSH_USER}@${SSH_HOSTS} "cd /keewe-front; sudo git pull origin main; sudo npm install; sudo npm run build; sudo pm2 restart keewe;"
-        env:
-          SSH_USER: ${{secrets.EC2_USER_NAME}}
-          SSH_HOSTS: ${{secrets.EC2_IP_ADDRESS}}
+      - uses: actions/checkout@v3
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.0.0
+          cache: 'npm'
+      - name: Install modules
+        run: npm install
+      - name: Build project
+        run: npm run build
+      - name: Deploy build outputs
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.EC2_IP_ADDRESS }}
+          username: ${{ secrets.EC2_USER_NAME }}
+          key: ${{ secrets.EC2_PEM }}
+          port: 22
+          source: '.next/*'
+          strip_components: 1
+          target: '/keewe'
