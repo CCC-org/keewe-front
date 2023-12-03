@@ -30,23 +30,13 @@ jobs:
           source: '.next/*'
           strip_components: 1
           target: '/keewe-front/.next'
-      - name: Deploy source outputs
+      - name: Deploy .git
         uses: appleboy/scp-action@master
         with:
           host: ${{ secrets.EC2_IP_ADDRESS }}
           username: ${{ secrets.EC2_USER_NAME }}
           key: ${{ secrets.EC2_PEM }}
           port: 22
-          source: 'src/*'
+          source: '.git'
           strip_components: 1
-          target: '/keewe-front/src'
-      - name: Deploy public outputs
-        uses: appleboy/scp-action@master
-        with:
-          host: ${{ secrets.EC2_IP_ADDRESS }}
-          username: ${{ secrets.EC2_USER_NAME }}
-          key: ${{ secrets.EC2_PEM }}
-          port: 22
-          source: 'public/*'
-          strip_components: 1
-          target: '/keewe-front/public'
+          target: '/keewe-front'
