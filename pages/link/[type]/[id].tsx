@@ -11,18 +11,20 @@ const LinkPage: NextPage = () => {
 	const { type, id } = router.query;
 
 	useEffect(() => {
-		if (isMobile) {
-			router.push(`keewe:///link/${type}/${id}`);
+		if (router?.query) {
+			if (isMobile) {
+				router.push(`keewe:///link/${type}/${id}`);
 
-			const timer = setTimeout(() => {
-				if (document.hidden) {
-					clearTimeout(timer);
-				} else {
-					move();
-				}
-			}, 500);
+				const timer = setTimeout(() => {
+					if (document.hidden) {
+						clearTimeout(timer);
+					} else {
+						move();
+					}
+				}, 500);
+			}
 		}
-	}, [isMobile]);
+	}, [isMobile, router.query]);
 
 	const move = () => {
 		if (window.confirm('스토어로 이동하시겠습니까?')) {
