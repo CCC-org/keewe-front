@@ -12,7 +12,6 @@ const LinkPage: NextPage = () => {
 
 	useEffect(() => {
 		if (isMobile && router.isReady) {
-			alert(type + '   ' + id);
 			router.push(`keewe:///link/${type}/${id}`);
 			const timer = setTimeout(() => {
 				if (document.hidden) {
