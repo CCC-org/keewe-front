@@ -11,8 +11,8 @@ const LinkPage: NextPage = () => {
 	const { type, id } = router.query;
 
 	useEffect(() => {
-		alert(`${type}   :  ${id}`);
-		if (isMobile) {
+		if (isMobile && router.isReady) {
+			alert(type + '   ' + id);
 			router.push(`keewe:///link/${type}/${id}`);
 			const timer = setTimeout(() => {
 				if (document.hidden) {
@@ -22,7 +22,7 @@ const LinkPage: NextPage = () => {
 				}
 			}, 500);
 		}
-	}, [isMobile]);
+	}, [isMobile, router.isReady]);
 
 	const move = () => {
 		if (window.confirm('스토어로 이동하시겠습니까?')) {
